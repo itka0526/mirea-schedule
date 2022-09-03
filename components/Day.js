@@ -43,7 +43,10 @@ const Day = ({ showHelp = false, day, data }) => {
                 </div>
                 <div className={`grid grid-rows-12 overflow-hidden `}>
                     {lessons.map(([odd_lesson, even_lesson], idx) => (
-                        <div className="overflow-hidden grid grid-cols-[1.15rem,_1fr]">
+                        <div
+                            className="overflow-hidden grid grid-cols-[1.15rem,_1fr]"
+                            key={`lesson-${idx}`}
+                        >
                             <div className="flex justify-center items-center ">
                                 <span className="text-blue-600 text-2xl">
                                     {idx + 1}
