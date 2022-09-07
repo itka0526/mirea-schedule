@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import Day from "../components/Day";
+import TimeTable from "../components/TimeTable";
 import Week from "../components/Week";
 import WeekCounter from "../components/WeekCounter";
 import { prisma } from "../lib/db";
@@ -32,10 +33,7 @@ export default function Home({ schedule_data: { schedule_json } }) {
                         <Day day="Четверг" data={schedule_json["Четверг"]} />
                         <Day day="Пятница" data={schedule_json["Пятница"]} />
                         <Day day="Суббота" data={schedule_json["Суббота"]} />
-                        <Day
-                            day="Воскресенье"
-                            data={schedule_json["Воскресенье"]}
-                        />
+                        <TimeTable />
                     </Week>
                 </div>
             </main>

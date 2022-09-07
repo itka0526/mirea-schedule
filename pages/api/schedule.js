@@ -12,6 +12,7 @@ export default async function handler(req, res) {
             const parsedFile = await fetchedExcelFile.arrayBuffer();
 
             const workbook = xlsx.read(parsedFile);
+            console.log(workbook.SheetNames);
 
             const sheetName = workbook.SheetNames.find(
                 (scheduleName) => scheduleName === currentScheduleName
