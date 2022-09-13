@@ -43,3 +43,21 @@ a {
     top: -3rem;
     left: -10%;
 }
+.output-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.output-table tr,
+.output-table td,
+.output-table th {
+    outline: 1px solid black;
+}
+
+.glass {
+    background: rgba(188, 188, 188, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(188, 188, 188, 0.3);
+}

@@ -35,6 +35,27 @@ export default async function handler(req, res) {
             console.log(error);
             return res.status(503).send("Something went wrong :/");
         }
+    } else if (req.method === "PUT") {
+        try {
+            const { data: requestData } = req.body;
+
+            const updatedData = scheduleFormatter(requestData);
+            console.log(updatedData);
+
+            await prisma.schedule.update({
+                where: {
+                    id: 1,
+                },
+                data: {
+                    schedule_json: updatedData,
+                },
+            });
+
+            return res.status(200).json({ success: true });
+        } catch (error) {
+            console.log(error);
+            return res.status(503).json({ success: false });
+        }
     } else {
         return res
             .status(400)
