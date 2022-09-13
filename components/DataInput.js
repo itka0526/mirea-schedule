@@ -1,5 +1,4 @@
 import { FolderPlus, Upload } from "react-feather";
-import { acceptedFiles } from "./contants.js";
 
 const DataInput = ({ handleFile }) => {
     const handleChange = (e) => {
