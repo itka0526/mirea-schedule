@@ -1,5 +1,5 @@
 import { FolderPlus, Upload } from "react-feather";
-import { acceptedFiles } from "./CONSTANTS.JS";
+import { acceptedFiles } from "./contants.js";
 
 const DataInput = ({ handleFile }) => {
     const handleChange = (e) => {
@@ -13,7 +13,9 @@ const DataInput = ({ handleFile }) => {
                 type="file"
                 className="hidden"
                 id="input-file"
-                accept={acceptedFiles}
+                accept={
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                }
                 onChange={handleChange}
             />
             <label
