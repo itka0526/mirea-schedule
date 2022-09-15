@@ -42,7 +42,7 @@ const Day = ({ day, data }) => {
         ) : null;
     };
     return (
-        <div className=" bg-white p-3 rounded-lg shadow-md w-11/12 lg:w-full min-h-[160px] pb-6 ">
+        <div className=" bg-white p-3 rounded-lg lg:rounded-xl lg:px-4 lg:basis-[calc(50%-1rem)] lg:self-start shadow-md w-11/12 lg:w-full min-h-[300px] pb-6 ">
             <div className="mb-1">
                 <span className="font-bold text-xl text-blue-600">{day}</span>
             </div>
