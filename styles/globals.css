@@ -137,3 +137,9 @@ a {
         opacity: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .custom-notification {
+        border: 1px solid #eee;
+    }
+}
