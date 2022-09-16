@@ -139,7 +139,7 @@ a {
 }
 
 @media (max-width: 768px) {
-    .custom-notification {
+    .custom-notification .quadrate-1 {
         border: 1px solid #eee;
     }
 }
