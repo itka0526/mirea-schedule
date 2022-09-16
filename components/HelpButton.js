@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { X } from "react-feather";
 import CustomNotification from "./reusable/Notification";
 
 const HelpButton = ({ date }) => {
-    const handleExplanation = () => setShowExplanation((prev) => !prev);
-    const [showExplanation, setShowExplanation] = useState(false);
+    const handleExplanation = () => {
+        setShowExplanation(false);
+        setTimeout(() => setShowExplanation(true), 25);
+    };
+    const [showExplanation, setShowExplanation] = useState(true);
 
     return (
         <>
@@ -14,13 +17,7 @@ const HelpButton = ({ date }) => {
                 color={"#252525"}
                 onClick={handleExplanation}
             >
-                <span className=" font-semibold text-2xl font-sans ">
-                    {showExplanation ? (
-                        <X height={24} width={24} color={"#252525"} />
-                    ) : (
-                        "?"
-                    )}
-                </span>
+                <span className=" font-semibold text-2xl font-sans ">?</span>
             </div>
         </>
     );

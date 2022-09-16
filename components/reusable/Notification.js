@@ -1,9 +1,10 @@
 const CustomNotification = ({ date = "00/00/0000", showExplanation }) => {
     return (
         <div
-            className={`fixed z-50 top-6 -translate-x-1/2 left-1/2 select-none ${
-                showExplanation ? "show" : "hide"
-            }`}
+            className={`fixed z-50 top-6 -translate-x-1/2 left-1/2 select-none pointer-events-none ${
+                showExplanation ? "" : "hidden"
+            }
+            `}
         >
             <div className="custom-notification h-16 -translate-y-8 drop-shadow-xl  w-16">
                 <div className="quadrate-1 relative isolate"></div>

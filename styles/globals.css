@@ -43,13 +43,13 @@ a {
     border: 1px solid rgba(188, 188, 188, 0.3);
 }
 
-.show .custom-notification {
+.custom-notification {
     position: relative;
-    animation: initialAnimation 6s 1 forwards;
+    animation: initialAnimation 4.5s 1 forwards;
     /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
-.show .custom-notification .text {
+.custom-notification .text {
     height: 100%;
     width: 16rem;
     position: absolute;
@@ -64,7 +64,7 @@ a {
     animation-delay: 1s;
 }
 
-.show .custom-notification .quadrate-1 {
+.custom-notification .quadrate-1 {
     height: 100%;
     width: 100%;
     position: absolute;
