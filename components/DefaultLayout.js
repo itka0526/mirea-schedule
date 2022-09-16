@@ -7,7 +7,11 @@ const DefaultLayout = ({ title, children }) => {
                 <title>{title}</title>
                 <meta name="description" content="Расписание для БФБО-01-21" />
                 <meta property="og:image" content="/logo.png" />
-                <meta name="theme-color" content="#252525" />
+                <meta name="theme-color" content="#2563eb" />
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1"
+                ></meta>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

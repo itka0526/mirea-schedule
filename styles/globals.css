@@ -24,25 +24,6 @@ a {
     box-sizing: border-box;
 }
 
-.show-explanation {
-    box-shadow: 0 0 0 1000vmax rgba(0, 0, 0, 0.8);
-}
-
-.show-explanation::after {
-    content: "* Серые I, а белые II";
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120%;
-    height: 2rem;
-    background-color: white;
-    position: absolute;
-
-    z-index: 50;
-    top: -3rem;
-    left: -10%;
-}
 .output-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -60,4 +41,99 @@ a {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(188, 188, 188, 0.3);
+}
+
+.show .custom-notification {
+    position: relative;
+    animation: initialAnimation 6s 1 forwards;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+.show .custom-notification .text {
+    height: 100%;
+    width: 16rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    z-index: 1;
+
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: textAnimation ease 0.5s forwards;
+    animation-delay: 1s;
+}
+
+.show .custom-notification .quadrate-1 {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+
+    background-color: white;
+    filter: blur(0.75px);
+
+    transform: translateX(-50%);
+    animation: translatingSquare ease 1.25s forwards;
+    overflow: hidden;
+}
+.quadrate-1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    left: 0;
+    width: 100%;
+    border-bottom: 4px solid #2563eb;
+    transform: translateY(4px);
+    animation: blueLine 300ms forwards;
+    animation-delay: 1.25s;
+}
+
+@keyframes blueLine {
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes initialAnimation {
+    0%,
+    100% {
+        transform: translateY(-8rem);
+    }
+    30%,
+    87.5% {
+        transform: translateY(2rem);
+    }
+}
+
+@keyframes translatingSquare {
+    0%,
+    50% {
+        width: 4rem;
+        border-radius: 50%;
+    }
+    90% {
+        filter: blur(0.5px);
+    }
+    100% {
+        border-radius: 8px;
+        filter: blur(0px);
+        width: 16rem;
+    }
+}
+
+@keyframes textAnimation {
+    0%,
+    45% {
+        filter: blur(0.25px);
+        opacity: 90%;
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 100%;
+    }
 }
