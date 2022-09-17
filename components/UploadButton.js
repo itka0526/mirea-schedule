@@ -91,7 +91,9 @@ const UploadButton = ({ data }) => {
                                     : " opacity-80 "
                             }`}
                         >
-                            <span className="text-xl text-white">Закрыть</span>
+                            <span className="text-xl text-white uppercase">
+                                Закрыть
+                            </span>
                         </div>
                     </div>
                 </div>
