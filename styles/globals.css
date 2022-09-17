@@ -24,6 +24,15 @@ a {
     box-sizing: border-box;
 }
 
+.modal-outer-container.in.visible {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-main-container.in.visible {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
 .output-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }

@@ -9,34 +9,54 @@ import UploadButton from "./UploadButton";
 
 const UploadFile = () => {
     const [data, setData] = useState([]);
+    const [rawData, setRawData] = useState({});
     const [formatedData, setFormatedData] = useState([]);
+
+    const [sheetName, setSheetName] = useState("");
+    const [sheetOptions, setSheetOptions] = useState([]);
+
     const [cols, setCols] = useState([]);
     const [showTable, setShowTable] = useState(false);
-    const [sheetName, setSheetName] = useState("");
 
     const handleFile = (file) => {
         const reader = new FileReader();
         const rABS = !!reader.readAsBinaryString;
         reader.onload = (e) => {
-            const bstr = e.target.result;
-            const wb = read(bstr, { type: rABS ? "binary" : "array" });
-            //develop here add choosing option between groups
-            const wsname = wb.SheetNames.find(
-                (scheduleName) => scheduleName === "БФБО"
-            );
-            setSheetName(wsname);
-            const ws = wb.Sheets[wsname];
-            const jsonData = utils.sheet_to_json(ws, { header: 1 });
-
-            setFormatedData(ws);
-            setData(jsonData);
-            setCols(make_cols(ws["!ref"]));
+            const bstr = e.target.result,
+                wb = read(bstr, { type: rABS ? "binary" : "array" });
+            setRawData(wb);
+            handleUpdate({ wb });
         };
         if (rABS) reader.readAsBinaryString(file);
         else reader.readAsArrayBuffer(file);
     };
 
+    const handleUpdate = ({ wb, option = false }) => {
+        const sheetNames = wb.SheetNames,
+            sheetName = option
+                ? sheetNames.find(
+                      (selectableSheetName) => selectableSheetName === option
+                  )
+                : sheetNames[0],
+            workSheet = wb.Sheets[sheetName],
+            jsonData = utils.sheet_to_json(workSheet, {
+                header: 1,
+            });
+
+        setSheetName(sheetName);
+        setSheetOptions(sheetNames);
+        setData(jsonData);
+        setCols(make_cols(workSheet["!ref"]));
+        setFormatedData(workSheet);
+    };
+
     const handleShow = () => setShowTable((prev) => !prev);
+
+    const handleOption = (event) => {
+        const selectedSheetName = `${event.target.value}`;
+        handleUpdate({ wb: rawData, option: selectedSheetName });
+    };
+
     return (
         <>
             <div className=" flex justify-center items-center py-3 px-2 rounded-full bg-white w-3/4 lg:w-1/2 shadow-md">
@@ -65,8 +85,16 @@ const UploadFile = () => {
 
                 <SquareButton disabled={data.length === 0} title={"Класс"}>
                     <div className="overflow-hidden w-12 h-12 outline-none relative isolate">
-                        <select className=" absolute h-full w-full -z-10 ">
-                            <option>БФБО</option>
+                        <select
+                            className=" absolute h-full w-full -z-10 "
+                            onChange={handleOption}
+                            value={sheetName}
+                        >
+                            {sheetOptions.map((sheetOption) => (
+                                <option key={`sheet-option-${sheetOption}`}>
+                                    {sheetOption}
+                                </option>
+                            ))}
                         </select>
                         <div className="bg-white pointer-events-none">
                             <MoreHorizontal

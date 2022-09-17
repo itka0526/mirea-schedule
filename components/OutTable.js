@@ -1,11 +1,11 @@
 const OutTable = ({ data, cols }) => {
     return (
         <div className="output-table ">
-            <table className="table ">
+            <table className="table  ">
                 <thead>
                     <tr>
-                        {cols.map((c) => (
-                            <th key={c.key}>{c.name}</th>
+                        {cols.map((column) => (
+                            <th key={column.key}>{column.name}</th>
                         ))}
                     </tr>
                 </thead>
@@ -13,7 +13,12 @@ const OutTable = ({ data, cols }) => {
                     {data.map((r, i) => (
                         <tr key={i}>
                             {cols.map((c) => (
-                                <td key={c.key}>{r[c.key]}</td>
+                                <td
+                                    key={c.key}
+                                    className="text-center px-2 min-w-[125px] min-h-[1rem]"
+                                >
+                                    {r[c.key]}
+                                </td>
                             ))}
                         </tr>
                     ))}
