@@ -10,7 +10,7 @@ export default function Home({
     schedule_data: { schedule_json, updatedAt },
     currentWeekNumber,
 }) {
-    console.log(updatedAt);
+    console.log(currentWeekNumber);
     return (
         <DefaultLayout title={"МИРЭА Расписание"}>
             <HelpButton date={updatedAt} />
@@ -42,7 +42,7 @@ export async function getServerSideProps() {
         WEEK = DAY * 7;
 
     const curr = Date.now(),
-        prev = Date.parse("09/01/2022 0:00:00"),
+        prev = Date.parse("08/29/2022 0:00:00"),
         diff = curr - prev;
 
     return {
