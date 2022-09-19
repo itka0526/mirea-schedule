@@ -12,6 +12,8 @@ const DefaultLayout = ({ title, children }) => {
                     name="viewport"
                     content="width=device-width,initial-scale=1"
                 ></meta>
+                <link rel="manifest" href="manifest.json"></link>
+                <link rel="apple-touch-icon" href="icon.png"></link>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
