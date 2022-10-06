@@ -20,6 +20,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
+    "three": "^0.145.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
