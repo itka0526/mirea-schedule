@@ -5,7 +5,7 @@ import FPV from "../../components/schools/78_components/FPV";
 import Ground from "../../components/schools/78_components/Ground";
 import Player from "../../components/schools/78_components/Player";
 
-import * as THREE from "three";
+//import * as THREE from "three";
 import Builder from "../../components/schools/78_components/Builder";
 
 export default function MainBuilding() {
@@ -15,7 +15,6 @@ export default function MainBuilding() {
                 <Sky sunPosition={[100, 100, 20]} />
                 <ambientLight intensity={0.5} />
                 <FPV />
-                <primitive object={new THREE.AxesHelper(100)} />
 
                 <Physics>
                     <Building />
